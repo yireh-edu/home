@@ -7,7 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&family=Nanum+Pen+Script&display=swap">
-<link rel="stylesheet" href="assets/quiz.css?v=202610270417">
+<link rel="stylesheet" href="assets/quiz.css?v=202610270504">
+<link rel="stylesheet" href="assets/hub.css?v=202610270504">
 <meta name="robots" content="noindex, nofollow">
 <style>html.gated body>*:not(#gate){display:none !important}
 #gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#F6F8FB;z-index:9999;font-family:'IBM Plex Sans KR',system-ui,sans-serif;padding:16px}
@@ -367,29 +368,10 @@
 <meta name="apple-mobile-web-app-title" content="이레">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <span class="eyebrow">초등 · 중등 · 고등 학년별 퀴즈</span>
-    <h1>이레</h1>
-    <p class="lead">과목과 학년을 고르고 공부해요. 바로 채점하고, 틀린 문제는 오답노트에 모입니다.</p>
-  </header>
-  <div class="subjects">
-    <a class="subject" href="math/index.html">
-      <span class="name">이레 수학</span>
-      <p>초1부터 고3까지 학년별 수학 480문제</p>
-      <ul><li>매주 월요일 새 문제</li><li>단원별 개념 설명</li><li>학년별 교과 문제</li><li>고등 과정에는 수학자 이야기</li></ul>
-      <span class="go">학년 고르기 →</span>
-    </a>
-    <a class="subject" href="english/index.html">
-      <span class="name">이레 영어</span>
-      <p>초1부터 고3까지 학년별 영어 652문제</p>
-      <ul><li>매일 새 문제</li><li>학년별 문법 · 표현 개념</li><li>단어 · 표현 · 문장 빈칸</li><li>발음 듣기</li></ul>
-      <span class="go">학년 고르기 →</span>
-    </a>
-  </div>
-  <p class="verse">이레: ‘여호와께서 준비하신다’ (창세기 22:14)</p>
-  <footer>휴대폰 앱처럼 쓰기 · 아이폰: 사파리 공유 버튼 → ‘홈 화면에 추가’ · 갤럭시: 크롬 메뉴(⋮) → ‘앱 설치’ 또는 ‘홈 화면에 추가’<br>아이폰은 홈 화면 앱과 사파리의 기록이 따로 저장되니 한 가지로만 써 주세요.</footer>
-</div>
+<div class="wrap"><div id="hub"></div></div>
+<script>window.HUB_CONFIG = {"grades":["e1","e2","e3","e4","e5","e6","m1","m2","m3","h1","h2","h3"],"labels":{"e1":"초1","e2":"초2","e3":"초3","e4":"초4","e5":"초5","e6":"초6","m1":"중1","m2":"중2","m3":"중3","h1":"고1","h2":"고2","h3":"고3"},"dtCourse":{"e1":"E1","e2":"E2","e3":"E3","e4":"E4","e5":"E5","e6":"E6","m1":"M1","m2":"M2","m3":"M3","h1":"C1","h2":"AL","h3":"CA"},"counts":{"math":{"e1":40,"e2":40,"e3":40,"e4":40,"e5":40,"e6":40,"m1":40,"m2":40,"m3":40,"h1":40,"h2":40,"h3":40}},"footer":"휴대폰 앱처럼 쓰기 · 아이폰: 사파리 공유 버튼 → ‘홈 화면에 추가’ · 갤럭시: 크롬 메뉴(⋮) → ‘앱 설치’ 또는 ‘홈 화면에 추가’<br>아이폰은 홈 화면 앱과 사파리의 기록이 따로 저장되니 한 가지로만 써 주세요."};</script>
+<script src="data/dt-data.js?v=202610270504"></script>
+<script src="assets/hub.js?v=202610270504"></script>
 <script>
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
   navigator.serviceWorker.register('sw.js').catch(function () {});

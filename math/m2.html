@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&family=Nanum+Pen+Script&display=swap">
-<link rel="stylesheet" href="../assets/quiz.css?v=202610270417">
+<link rel="stylesheet" href="../assets/quiz.css?v=202610270504">
 <meta name="robots" content="noindex, nofollow">
 <style>html.gated body>*:not(#gate){display:none !important}
 #gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#F6F8FB;z-index:9999;font-family:'IBM Plex Sans KR',system-ui,sans-serif;padding:16px}
@@ -368,15 +368,15 @@
 </head>
 <body>
 <div class="wrap" id="app"></div>
-<script>window.QUIZ_CONFIG = {"dtPage":"dt.html","links":[{"href":"dt.html?c=M2","label":"중2 DT 카드 · 정의와 정리 →"}],"subject":"math","grade":"m2","title":"이레 수학","period":"week","math":true,"speech":false,"eyebrow":"학년별 수학","lead":"매주 월요일 새 문제가 나와요. 바로 채점하고, 틀린 문제는 오답노트에 모입니다.","footer":"숫자 키 1~5로 보기 선택, Enter로 다음 문제","logo":"../assets/yireh-math-wide.svg"};</script>
+<script>window.QUIZ_CONFIG = {"dtPage":"dt.html","links":[{"href":"dt.html?c=M2","label":"중2 DT 카드 · 정의와 정리 →","short":"DT 카드"}],"compact":true,"home":"../index.html","homeLabel":"← 처음","shortTitle":"수학 중2","lastKey":"irae-home-last","lastBase":"math/","subject":"math","grade":"m2","title":"이레 수학","period":"week","math":true,"speech":false,"eyebrow":"학년별 수학","lead":"매주 월요일 새 문제가 나와요. 바로 채점하고, 틀린 문제는 오답노트에 모입니다.","footer":"숫자 키 1~5로 보기 선택, Enter로 다음 문제","logo":"../assets/yireh-math-wide.svg"};</script>
 <script>
 window.MathJax = { tex: { inlineMath: [['$', '$']] }, svg: { fontCache: 'global' },
   startup: { typeset: false, ready() { MathJax.startup.defaultReady(); MathJax.startup.promise.then(() => window.IRAE_READY && window.IRAE_READY()); } } };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js" async></script>
-<script src="../data/math-m2.js?v=202610270417"></script>
-<script src="../data/concepts-math-m2.js?v=202610270417"></script>
-<script src="../assets/quiz.js?v=202610270417"></script>
+<script src="../data/math-m2.js?v=202610270504"></script>
+<script src="../data/concepts-math-m2.js?v=202610270504"></script>
+<script src="../assets/quiz.js?v=202610270504"></script>
 <script>
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
   navigator.serviceWorker.register('../sw.js').catch(function () {});
