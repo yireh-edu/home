@@ -1,4 +1,4 @@
-// 고3 영어 개념 (irae-src/concepts-*.js 에서 만든 파일)
+// 고3 영어 개념 (src/concepts-*.js 에서 만든 파일)
 window.QUIZ_CONCEPTS = {
  "s1": [
   {

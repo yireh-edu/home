@@ -1,5 +1,5 @@
 /*
- * 이레 · 첫 화면 (오늘 할 것) → irae-site/assets/hub.js
+ * 이레 · 첫 화면 (오늘 할 것) → yireh-site/assets/hub.js
  *   [이어서 풀기] 마지막으로 보던 화면 (localStorage 'irae-home-last', 학년 화면·DT 화면이 남김)
  *   내 학년('irae-grade', e1~h3): 처음 한 번 고르면 칸들이 바로 그 학년 화면으로 감
  *   칸: 수학(math/학년.html) · 영어(english/학년.html) · DT 익히기(math/dt.html?next=과정) · 이레 수학 앱(숙제·단계별·연산)
