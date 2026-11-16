@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&family=Nanum+Pen+Script&display=swap">
-<link rel="stylesheet" href="../assets/quiz.css?v=202611160100">
+<link rel="stylesheet" href="../assets/quiz.css?v=202611160208">
 <meta name="robots" content="noindex, nofollow">
 <style>html.gated body>*:not(#gate){display:none !important}
 #gate{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#F6F8FB;z-index:9999;font-family:'IBM Plex Sans KR',system-ui,sans-serif;padding:16px}
@@ -189,10 +189,12 @@
 #irae-bk .bk-close{float:right;border:0;padding:4px 8px;font-size:22px;line-height:1}
 </style>
 <script>(function () {
-  var P = 'irae-', AT = 'irae-backup-at';
+  // 기록 키: 예전부터 쓰던 'irae-' + 새로 만드는 'yireh-'
+  var AT = 'irae-backup-at';
+  function mine(k) { return k.indexOf('irae-') === 0 || k.indexOf('yireh-') === 0; }
   function collect() {
     var data = {};
-    try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && k.indexOf(P) === 0) data[k] = localStorage.getItem(k); } } catch (e) {}
+    try { for (var i = 0; i < localStorage.length; i++) { var k = localStorage.key(i); if (k && mine(k)) data[k] = localStorage.getItem(k); } } catch (e) {}
     return data;
   }
   function count(data) { var n = 0; for (var k in data) if (k !== AT) n++; return n; }
@@ -219,7 +221,7 @@
   }
   function valid(obj) {
     if (!obj || obj.app !== 'irae' || !obj.data || typeof obj.data !== 'object') return false;
-    for (var k in obj.data) if (k.indexOf(P) !== 0 || typeof obj.data[k] !== 'string') return false;
+    for (var k in obj.data) if (!mine(k) || typeof obj.data[k] !== 'string') return false;
     return true;
   }
   function when(t) {
@@ -370,9 +372,9 @@
 <div class="wrap" id="app"></div>
 <script>window.QUIZ_CONFIG = {"compact":true,"home":"../index.html","homeLabel":"← 처음","shortTitle":"영어 초1","lastKey":"irae-home-last","lastBase":"english/","areas":true,"subject":"english","grade":"e1","title":"이레 영어","period":"day","math":false,"speech":true,"eyebrow":"학년별 영어","lead":"매일 새 문제가 나와요. 발음을 듣고, 틀린 문제는 오답노트에 모입니다.","footer":"숫자 키 1~5로 보기 선택, Enter로 다음 문제 · 오늘의 문제는 한국 시간 자정에 바뀝니다","logo":"../assets/yireh-english-wide.svg"};</script>
 
-<script src="../data/english-e1.js?v=202611160100"></script>
-<script src="../data/concepts-english-e1.js?v=202611160100"></script>
-<script src="../assets/quiz.js?v=202611160100"></script>
+<script src="../data/english-e1.js?v=202611160208"></script>
+<script src="../data/concepts-english-e1.js?v=202611160208"></script>
+<script src="../assets/quiz.js?v=202611160208"></script>
 <script>
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
   navigator.serviceWorker.register('../sw.js').catch(function () {});
