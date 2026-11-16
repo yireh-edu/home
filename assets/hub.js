@@ -69,6 +69,7 @@
     if (b.dataset.grade) { put('irae-grade', b.dataset.grade); pickGrade = false; render(); }
   });
   render();
+  window.addEventListener('pageshow', e => { if (e.persisted) render(); });
   const ft = document.createElement('footer'); ft.innerHTML = CFG.footer || ''; $('#hub').after(ft);
   window.HUB_DEBUG = { render, myGrade };
 })();
