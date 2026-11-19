@@ -1,7 +1,7 @@
 /*
  * 이레 · 첫 화면 (오늘 할 것) → yireh-site/assets/hub.js
- *   [이어서 풀기] 마지막으로 보던 화면 (localStorage 'irae-home-last', 학년 화면·DT 화면이 남김)
- *   내 학년('irae-grade', e1~h3): 처음 한 번 고르면 칸들이 바로 그 학년 화면으로 감
+ *   [이어서 풀기] 마지막으로 보던 화면 (localStorage 'yireh-home-last', 학년 화면·DT 화면이 남김)
+ *   내 학년('yireh-grade', e1~h3): 처음 한 번 고르면 칸들이 바로 그 학년 화면으로 감
  *   칸: 수학(math/학년.html) · 영어(english/학년.html) · DT 익히기(math/dt.html?next=과정) · 이레 수학 앱(숙제·단계별·연산)
  * 읽는 것: window.HUB_CONFIG({ grades, labels, dtCourse, counts, footer }) · window.DT_COURSES/DT_COUNTS(data/dt-data.js)
  */
@@ -16,7 +16,7 @@
 
   // 내 학년: 고른 적이 없으면 마지막으로 연 수학·영어 학년을 씀 (전부터 쓰던 학생은 다시 고를 필요 없음)
   function myGrade() {
-    const g = get('irae-grade', '') || get('irae-math-last-grade', '') || get('irae-english-last-grade', '');
+    const g = get('yireh-grade', '') || get('yireh-math-last-grade', '') || get('yireh-english-last-grade', '');
     return GRADES.includes(g) ? g : '';
   }
 
@@ -26,7 +26,7 @@
   for (const c of COURSES) for (const it of c.items) BY_ID.set(it.id, c.id);
   function dtNext(cid) {
     const c = COURSES.find(x => x.id === cid); if (!c) return null;
-    const known = get('irae-dt-known', {}), best = get('irae-dtp-stage-best', {});
+    const known = get('yireh-dt-known', {}), best = get('yireh-dtp-stage-best', {});
     const mastered = id => !!known[id] && (!(COUNTS[id] || 0) || (best[id] || 0) >= Math.ceil(Math.min(10, COUNTS[id]) * 0.8));
     const nx = c.items.find(it => !mastered(it.id) && it.pre.every(p => BY_ID.get(p) !== c.id || mastered(p)));
     return { label: c.label, next: nx ? nx.name : '', m: c.items.filter(it => mastered(it.id)).length, n: c.items.length };
@@ -43,7 +43,7 @@
       ${s2 ? `<span class="tile-s2">${esc(s2)}</span>` : ''}<span class="tile-sub">${esc(sub)}</span></a>`;
 
   function render() {
-    const g = myGrade(), last = get('irae-home-last', null);
+    const g = myGrade(), last = get('yireh-home-last', null);
     const dt = g ? dtNext((CFG.dtCourse || {})[g]) : null;
     $('#hub').innerHTML = `
       <header class="hub-head">
@@ -66,7 +66,7 @@
   document.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b || !$('#hub').contains(b)) return;
     if (b.dataset.act === 'grade') { pickGrade = !pickGrade; render(); return; }
-    if (b.dataset.grade) { put('irae-grade', b.dataset.grade); pickGrade = false; render(); }
+    if (b.dataset.grade) { put('yireh-grade', b.dataset.grade); pickGrade = false; render(); }
   });
   render();
   window.addEventListener('pageshow', e => { if (e.persisted) render(); });
